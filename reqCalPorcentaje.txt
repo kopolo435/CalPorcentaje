@@ -1,0 +1,13 @@
+Objetivo principal:
+  - Pagina que saca el porcentaje de una calificacion en base al 100%
+  - Debe dejar colocar el porcentaje del peso de la nota
+  - Debe decir si te estas quedando o no
+  - El usuario debe poder especificar si la materia ya tiene todas las notas o no
+
+Objetivos ideales:
+  - Colocar algun tipo de creacion de usuario para guardar la iformacion del usuario
+	De esta manera un usuario podra actualizar y verifica la informacion de todas
+	sus materias de manera rapida.
+  - Se debe poder agregar una nueva materia en la pagina principal con un boton de +
+  - Los cuadros de calificacion deben tomar una tonalidad roja si fracasaste y verde si pasaste
+ 
