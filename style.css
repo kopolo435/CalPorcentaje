@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+    grid-template-columns: repeat(2,1fr);
+}
+
+header{
+    grid-row: 2/ auto;
+    grid-column: 1 / 2;
+}
