@@ -22,3 +22,10 @@ main{
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: auto;
 }
+
+.startContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% auto;
+    gap: 10px;
+}
