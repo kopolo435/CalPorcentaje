@@ -31,6 +31,13 @@ main{
     gap: 10px;
 }
 
+.startForm{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+}
+
 .pageText{
     justify-self: center;
     align-self: center;
