@@ -30,6 +30,12 @@ main{
     grid-template-columns: 1fr;
     grid-template-rows: 15% auto;
     gap: 10px;
+    width: 80%;
+    height: 65%;
+    background-color: gray;
+    color: white;
+    padding: 30px;
+    justify-items: center;
 }
 
 .startForm{
