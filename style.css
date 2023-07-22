@@ -29,3 +29,8 @@ main{
     grid-template-rows: 15% auto;
     gap: 10px;
 }
+
+.pageText{
+    justify-self: center;
+    align-self: center;
+}
