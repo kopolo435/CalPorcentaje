@@ -24,6 +24,7 @@ main{
 }
 
 .startContainer{
+    justify-self: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 15% auto;
