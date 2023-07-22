@@ -25,6 +25,7 @@ main{
 
 .startContainer{
     justify-self: center;
+    align-self: center;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 15% auto;
@@ -36,8 +37,14 @@ main{
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
-
+form label{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .pageText{
     justify-self: center;
     align-self: center;
