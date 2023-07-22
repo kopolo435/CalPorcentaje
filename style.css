@@ -54,4 +54,15 @@ form label{
 .pageText{
     justify-self: center;
     align-self: center;
+    padding: 20px;
+    background-color: gray;
+    color: white;
+    height: 50%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
