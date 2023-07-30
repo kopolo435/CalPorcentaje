@@ -30,6 +30,8 @@ main{
 h1{
     grid-column: 2/3;
     grid-row: 1/2;
+    justify-self: center;
+    margin: 20px;
 }
 
 .materiasContainer{
@@ -82,12 +84,14 @@ h1{
     grid-column: 3/4;
     grid-row: 2/3;
     align-self: flex-end;
-    justify-self: center;
+    justify-self: flex-end;
     padding: 10px 5px;
     border-radius: 20px;
     border: none;
     background-color: greenyellow;
     color: gray;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 footer{
