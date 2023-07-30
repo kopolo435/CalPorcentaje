@@ -89,3 +89,16 @@ h1{
     background-color: greenyellow;
     color: gray;
 }
+
+footer{
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;   
+}
+
+footer ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr;
+    list-style: none;
+}
