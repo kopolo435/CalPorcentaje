@@ -144,3 +144,9 @@ footer ul{
     grid-row: 3/4;
     grid-column: 2/3;
 }
+
+.notasContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: span;
+}
