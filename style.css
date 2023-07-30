@@ -16,6 +16,9 @@ header{
 nav ul{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    background-color: aqua;
+    padding: 10px 20px;
+    list-style: none;
 }
 
 main{
