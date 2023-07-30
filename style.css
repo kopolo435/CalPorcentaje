@@ -116,13 +116,17 @@ footer ul{
 .porcentajeContainer{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
+    background-color: beige;
+    padding: 20px;
 }
 .infoPorcentaje{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3,1fr);
     justify-items: center;
+    background-color: aliceblue;
+    padding: 10px;
 }
 
 .eliminarBtn{
@@ -152,6 +156,7 @@ footer ul{
     grid-row: span;
     padding: 10px 40px;
     background-color: gray;
+    gap: 10px;
 }
 
 .nota{
