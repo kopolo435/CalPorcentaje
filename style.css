@@ -40,10 +40,11 @@ h1{
     grid-column: 2/3;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px;
-    grid-auto-rows: 100px;
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
     gap: 20px;
     align-items: start;
+    background-color: beige;
 }
 
 .addMateria{
@@ -119,7 +120,6 @@ footer ul{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    background-color: beige;
     padding: 20px;
 }
 .infoPorcentaje{
