@@ -80,12 +80,12 @@ h1{
     align-self: center;
 }
 
-.addMateria{
+.addMateria,.guardarBtn{
     grid-column: 3/4;
     grid-row: 2/3;
     align-self: flex-end;
     justify-self: flex-end;
-    padding: 10px 5px;
+    padding: 10px 20px;
     border-radius: 20px;
     border: none;
     background-color: greenyellow;
