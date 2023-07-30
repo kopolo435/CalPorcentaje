@@ -53,3 +53,18 @@ h1{
     border-bottom-right-radius: 20px;
     padding: 10px 20px;
 }
+
+.nombreMateria{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.estadoMateria{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.porcentaje{
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
