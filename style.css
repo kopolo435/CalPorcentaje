@@ -123,3 +123,10 @@ footer ul{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3,1fr);
 }
+
+.eliminarBtn{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: flex-start;
+}
