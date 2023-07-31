@@ -81,7 +81,7 @@ h1{
     align-self: flex-start;
 }
 
-.estadoMateria{
+.estadoNota{
     grid-column: 1/2;
     grid-row: 2/3;
     align-self: flex-end;
