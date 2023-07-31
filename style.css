@@ -12,6 +12,7 @@ body{
 header{
     background-color: #765827;
     color: white;
+    padding: 10px;
 }
 nav{
     background-color: #EAC696;
@@ -34,6 +35,7 @@ main{
     grid-template-rows: 0.2fr 4fr;
     gap: 10px;
     background-color: #F7FFE5;
+    padding: 20px;
 }
 
 h1{
