@@ -158,6 +158,8 @@ footer a{
 .nombrePorcentaje{
     grid-row: 2/3;
     grid-column: 1/2;
+    padding-top: 2px;
+    justify-self: flex-end;
 }
 
 .valorPorcentaje{
