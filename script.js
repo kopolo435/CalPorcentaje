@@ -1,6 +1,6 @@
 let addMateBtn = document.getElementById("addMateria"); //Materia sera abreviado como Mate
 let mateContainer = document.getElementById("listaMaterias");
-addMateriaBtn.addEventListener("click", ()=> {
+addMateBtn.addEventListener("click", ()=> {
     let materia = document.createElement("div");
     let nombreMate = document.createElement("h2");
     let estadoNota = document.createElement("p");
@@ -12,5 +12,9 @@ addMateriaBtn.addEventListener("click", ()=> {
     nombreMate.textContent = "Matematicas"
     estadoNota.textContent = "Fracasada";
     porcentaje.textContent = "50%";
+    materia.appendChild(nombreMate);
+    materia.appendChild(estadoNota);
+    materia.appendChild(porcentaje);
+    mateContainer.appendChild(materia)
 
 })
