@@ -154,6 +154,11 @@ footer a{
     grid-row: 1/2;
     align-self: center;
     justify-self: flex-start;
+    padding: 2px 5px;
+    background-color: #C8AE7D;
+    color: white;
+    border-radius: 10px;
+    border: none;
 }
 .nombrePorcentaje{
     grid-row: 2/3;
