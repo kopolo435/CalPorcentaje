@@ -101,10 +101,11 @@ h1{
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
-    background-color: greenyellow;
-    color: gray;
+    background-color: #65451F;
+    color: white;
     margin-bottom: 20px;
     margin-right: 20px;
+    box-shadow: 0px 6px 10px -1px rgba(168,168,166,1);
 }
 
 footer{
