@@ -55,6 +55,7 @@ h1{
     gap: 20px;
     align-items: start;
     background-color: #C8AE7D;
+    padding: 20px;
 }
 
 .addMateria{
@@ -135,7 +136,6 @@ footer a{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    padding: 20px;
 }
 .infoPorcentaje{
     display: grid;
