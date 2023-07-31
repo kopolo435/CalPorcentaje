@@ -10,15 +10,22 @@ body{
 }
 
 header{
-    background-color: gray;
+    background-color: #765827;
     color: white;
+}
+nav{
+    background-color: #EAC696;
 }
 nav ul{
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    background-color: aqua;
     padding: 10px 20px;
     list-style: none;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
 }
 
 main{
@@ -26,6 +33,7 @@ main{
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 0.2fr 4fr;
     gap: 10px;
+    background-color: #F7FFE5;
 }
 
 h1{
@@ -97,7 +105,7 @@ h1{
 }
 
 footer{
-    background-color: gray;
+    background-color: #765827;
     color: white;
     padding: 10px 20px;   
 }
@@ -107,6 +115,11 @@ footer ul{
     grid-template-columns: 1fr 1fr;
     grid-row: 1fr;
     list-style: none;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
 }
 
 .estadoMateria{
