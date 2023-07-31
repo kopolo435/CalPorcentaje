@@ -185,6 +185,15 @@ footer a{
     grid-column: 2/3;
 }
 
+#addPorcentaje{
+    justify-self: flex-end;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    color: #65451F;
+}
+
 .showNotas{
     grid-row: 3/4;
     grid-column: 2/3;
