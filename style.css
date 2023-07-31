@@ -191,6 +191,10 @@ footer a{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3,1fr);
     background-color: antiquewhite;
+    color: #65451F;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
     justify-items: center;
 }
 
