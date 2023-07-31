@@ -163,6 +163,16 @@ footer a{
     border-radius: 10px;
     border: none;
 }
+
+.addNota{
+    justify-self: center;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    color: #65451F;
+}
+
 .nombrePorcentaje{
     grid-row: 2/3;
     grid-column: 1/2;
