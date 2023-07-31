@@ -68,7 +68,7 @@ h1{
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
-    background-color: gray;
+    background-color: #765827;
     color: white;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
