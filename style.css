@@ -54,7 +54,7 @@ h1{
     grid-auto-rows: auto;
     gap: 20px;
     align-items: start;
-    background-color: beige;
+    background-color: #C8AE7D;
 }
 
 .addMateria{
@@ -142,7 +142,8 @@ footer a{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3,1fr);
     justify-items: center;
-    background-color: aliceblue;
+    background-color: #765827;
+    color: wheat;
     padding: 10px;
 }
 
@@ -172,7 +173,7 @@ footer a{
     grid-template-columns: 1fr;
     grid-row: span;
     padding: 10px 40px;
-    background-color: gray;
+    background-color: #EAC696;
     gap: 10px;
 }
 
