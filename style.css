@@ -147,6 +147,9 @@ footer a{
     background-color: #765827;
     color: wheat;
     padding: 10px;
+    border: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .eliminarBtn{
@@ -180,9 +183,11 @@ footer a{
 .notasContainer{
     display: grid;
     grid-template-columns: 1fr;
-    grid-row: span;
     padding: 10px 40px;
     background-color: #EAC696;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     gap: 10px;
 }
 
