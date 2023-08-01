@@ -207,7 +207,7 @@ footer a{
 }
 
 .notasContainer{
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     padding: 10px 40px;
     background-color: #EAC696;
