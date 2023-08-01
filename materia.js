@@ -21,6 +21,8 @@ function createLabelPor(parent){
 
     label.appendChild(pNombre);
     label.appendChild(inputNombre)
+
+    return label
 }
 
 Array.from(mostrarNotaList).forEach(button => {
