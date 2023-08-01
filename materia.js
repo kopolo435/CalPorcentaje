@@ -143,6 +143,28 @@ Array.from(eliminarPorBtnLista).forEach(eliminarBtn =>{
     EliminarPorEvent(eliminarBtn);
 });
 
+function createLabelNotaObt(){
+    const label = document.createElement("label");
+    const notaObt = document.createElement("p");
+    const inputNotaObt = document.createElement("input");
+
+    notaObt.textContent = "Nota obtenida";
+
+    label.setAttribute("id","labelNotaObt");
+    label.setAttribute("class","notaObt inputNew");
+    label.setAttribute("for","notaObt");
+    inputNotaObt.setAttribute("type","number");
+    inputNotaObt.setAttribute("id","notaObt");
+    inputNotaObt.setAttribute("name","notaObt");
+    inputNotaObt.setAttribute("placeholder","0");
+
+    label.appendChild(notaObt);
+    label.appendChild(inputNotaObt);
+    
+    return label
+
+}
+
 function createNota(){
     const nota = document.createElement("div");
     const form = document.createElement("form");
