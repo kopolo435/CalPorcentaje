@@ -91,5 +91,5 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     form.append(infoPorContainer);
     porcentajeContainer.append(form);
     materiasContainer.insertBefore(porcentajeContainer,materiasContainer.lastElementChild);
-
+    addPorcentajeBtn.setAttribute("disabled","true");
 })
