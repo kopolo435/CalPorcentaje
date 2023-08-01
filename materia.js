@@ -128,7 +128,6 @@ function eliminarNotaEvent(button){
         }
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
-            const addNotaBtnLista = document.getElementsByClassName("addNota");
             changeDisabledNota(false);
             addPorcentajeBtn.disabled = false;
         }
@@ -144,6 +143,15 @@ Array.from(eliminarPorBtnLista).forEach(eliminarBtn =>{
     EliminarPorEvent(eliminarBtn);
 });
 
+function createNota(){
+    const nota = document.createElement("div");
+    const form = document.createElement("form");
+    const eliminarBtn = document.createElement("button");
+    const nombreNonta = document.createElement("h3");
+    const notaObt = document.createElement("input");
+    const notaPos = document.createElement("input");
+    nota.setAttribute("class","nota");
+}
 /*
 Array.from(addNotaList).forEach(addBtn =>{
     addBtn.addEventListener("click", =>{
