@@ -82,7 +82,8 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     const infoPorContainer = document.createElement("div");
 
     eliminarBtn.textContent = "Eliminar";
-    eliminarBtn.setAttribute("class","eliminarBtn");
+    eliminarBtn.setAttribute("class","eliminarPorBtn");
+    EliminarPorEvent(eliminarBtn);
     porcentajeContainer.setAttribute("class","porcentajeContainer");
     infoPorContainer.setAttribute("class", "infoPorcentaje");
     
@@ -103,7 +104,7 @@ function EliminarPorEvent(button){
         }
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
-            addPorcentajeBtn.setAttribute("disabled","false");
+            addPorcentajeBtn.disabled = false;
         }
     })
 }
