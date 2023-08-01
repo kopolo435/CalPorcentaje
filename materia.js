@@ -1,8 +1,9 @@
-let mostrarNotaList = document.getElementsByClassName("showNotas");
 const addPorcentajeBtn = document.getElementById("addPorcentaje");
 const materiasCon = document.getElementById("materiasCon");
+const addNotaList = document.getElementsByClassName("addNota");
 let  eliminarPorBtnLista = document.getElementsByClassName("eliminarPorBtn");
 let eliminarNotaBtnLista = document.getElementsByClassName("eliminarBtn");
+let mostrarNotaList = document.getElementsByClassName("showNotas");
 
 function createLabelNombrePor(){
     const label =document.createElement("label");
