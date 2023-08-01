@@ -107,6 +107,10 @@ function EliminarPorEvent(button){
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             addPorcentajeBtn.disabled = false;
+            const addNotaBtnLista = document.getElementsByClassName("addNota");
+            Array.from(addNotaBtnLista).forEach(button =>{
+                button.disabled = false;
+            })
         }
     })
 }
@@ -118,12 +122,12 @@ function eliminarNotaEvent(button){
             eliminarParent.parentNode.removeChild(eliminarParent);
         }
         else{
-            eliminarParent.parentNode.removeChild(eliminarParent);
-            const notasContainer = button.closest(".notasContainer");
-            const addNotaBtns = notasContainer.getElementsByClassName("addNota");
-            Array.from(addNotaBtns).forEach(button =>{
+            eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
+            const addNotaBtnLista = document.getElementsByClassName("addNota");
+            Array.from(addNotaBtnLista).forEach(button =>{
                 button.disabled = false;
             })
+            addPorcentajeBtn.disabled = false;
         }
     })
 }
@@ -136,3 +140,11 @@ Array.from(eliminarPorBtnLista).forEach(eliminarBtn =>{
 
     EliminarPorEvent(eliminarBtn);
 });
+
+/*
+Array.from(addNotaList).forEach(addBtn =>{
+    addBtn.addEventListener("click", =>{
+
+    })
+})
+*/
