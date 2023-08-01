@@ -77,9 +77,17 @@
                 <form action="">
                     <div class="infoPorcentaje">
                         <button class="eliminarBtn">Eliminar</button>
-                        <input type="text" id="nombrePor" name="nombrePor" placeholder="Nombre Porcentaje">
-                        <input type="number" id="valPor" placeholder="0" name="valPor">
-                        <button class="showNotas">Mostrar notas</button>
+                        <label for="nombrePor">
+                            <p>Nombre Porcentaje</p>
+                            <input type="text" id="nombrePor" name="nombrePor" placeholder="Nombre Porcentaje">
+                        </label>
+                        <label for="valPor">
+                            Valor Porcentaje
+                            <div>
+                                <input type="number" id="valPor" placeholder="0" name="valPor">
+                                <p>%</p>
+                            </div>
+                        </label>
                     </div>
                     <div class="notasContainer">
                         <div class="nota">
