@@ -75,6 +75,13 @@ Array.from(mostrarNotaList).forEach(button => {
     })
 });
 
+function changeDisabledNota(boolean){
+    const addNotaBtnLista = document.getElementsByClassName("addNota");
+    Array.from(addNotaBtnLista).forEach(button =>{
+        button.disabled = boolean;
+    })
+}
+
 addPorcentajeBtn.addEventListener("click", ()=>{
     const form = createNewElementForm();
     const nombreLabel = createLabelNombrePor();
