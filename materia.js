@@ -2,7 +2,7 @@ let mostrarNotaList = document.getElementsByClassName("showNotas");
 const addPorcentajeBtn = document.getElementById("addPorcentaje");
 
 
-function createLabelPor(parent){
+function createLabelNombrePor(){
     const label =document.createElement("label");
     const pNombre = document.createElement("p");
     const inputNombre = document.createElement("input");
@@ -20,8 +20,29 @@ function createLabelPor(parent){
     label.setAttribute("for","nombrePor");
 
     label.appendChild(pNombre);
-    label.appendChild(inputNombre)
+    label.appendChild(inputNombre);
 
+    return label
+}
+
+function createLabelValPor(){
+    const label = document.createElement("label");
+    const pVal = document.createElement("p");
+    const inputVal = document.createElement("input");
+
+    pVal.textContent = "Valor Porcentaje"; 
+
+    inputVal.setAttribute("name", "valPor"); //Coloca los atributos necesarios del input
+    inputVal.setAttribute("type", "number");   
+    inputVal.setAttribute("id", "valPor");
+    inputVal.setAttribute("placeholder","0");
+
+    label.setAttribute("id","labelValPor");//Coloca los atributos necesarios del label
+    label.setAttribute("class","inputNew");
+    label.setAttribute("for","valPor");
+
+    label.appendChild(pVal);
+    label.appendChild(inputVal);
     return label
 }
 
