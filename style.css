@@ -197,6 +197,13 @@ footer a{
 .showNotas{
     grid-row: 3/4;
     grid-column: 2/3;
+    justify-self: flex-end;
+    padding: 5px 10px;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    color: #65451F;
 }
 
 .notasContainer{
