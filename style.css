@@ -264,13 +264,24 @@ añadir nuevos elementos */
     gap: 2px;
 }
 
-#labelNombrePor p{
-    font-size: 12px;
+.inputNew p{
+    font-size: 14px;
 }
 
 #labelValPor{
     grid-column: 2/3;
     grid-row: 2/3;
+}
+
+#labelValPor div{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+/*Input de valor de porcentaje*/
+#valPor{
+    width: 8ch;
 }
 
 .inputNew input{
