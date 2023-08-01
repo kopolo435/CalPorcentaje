@@ -1,5 +1,7 @@
 let mostrarNotaList = document.getElementsByClassName("showNotas");
 const addPorcentajeBtn = document.getElementById("addPorcentaje");
+const materiasCon = document.getElementById("materiasCon");
+let  eliminarBtnLista = document.getElementsByClassName("eliminarBtn");
 
 function createLabelNombrePor(){
     const label =document.createElement("label");
@@ -72,7 +74,6 @@ Array.from(mostrarNotaList).forEach(button => {
 });
 
 addPorcentajeBtn.addEventListener("click", ()=>{
-    const materiasContainer = addPorcentajeBtn.closest(".materiasContainer");
     const form = createNewElementForm();
     const nombreLabel = createLabelNombrePor();
     const valLabel = createLabelValPor();
@@ -90,6 +91,13 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     infoPorContainer.appendChild(valLabel);
     form.append(infoPorContainer);
     porcentajeContainer.append(form);
-    materiasContainer.insertBefore(porcentajeContainer,materiasContainer.lastElementChild);
+    materiasCon.insertBefore(porcentajeContainer,materiasCon.lastElementChild);
     addPorcentajeBtn.setAttribute("disabled","true");
+})
+
+Array.from(eliminarBtnLista).forEach(eliminarBtn, ()=>{
+
+    eliminarBtn.addEventListener("click", ()=>{
+
+    })
 })
