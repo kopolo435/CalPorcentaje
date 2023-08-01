@@ -165,6 +165,28 @@ function createLabelNotaObt(){
 
 }
 
+function createLabelNotaPos(){
+    const label = document.createElement("label");
+    const notaObt = document.createElement("p");
+    const inputNotaPos = document.createElement("input");
+
+    notaObt.textContent = "Nota Posible";
+
+    label.setAttribute("id","labelNotaPos");
+    label.setAttribute("class","notaPos inputNew");
+    label.setAttribute("for","notaPos");
+    inputNotaPos.setAttribute("type","number");
+    inputNotaPos.setAttribute("id","notaPos");
+    inputNotaPos.setAttribute("name","notaPos");
+    inputNotaPos.setAttribute("placeholder","0");
+
+    label.appendChild(notaPos);
+    label.appendChild(inputNotaPos);
+    
+    return label
+
+}
+
 function createNota(){
     const nota = document.createElement("div");
     const form = document.createElement("form");
