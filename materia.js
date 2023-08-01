@@ -29,8 +29,11 @@ function createLabelValPor(){
     const label = document.createElement("label");
     const pVal = document.createElement("p");
     const inputVal = document.createElement("input");
+    const container = document.createElement("div");
+    const pPorncetaje = document.createElement("p");
 
     pVal.textContent = "Valor Porcentaje"; 
+    pPorncetaje.textContent = "%";
 
     inputVal.setAttribute("name", "valPor"); //Coloca los atributos necesarios del input
     inputVal.setAttribute("type", "number");   
@@ -42,7 +45,9 @@ function createLabelValPor(){
     label.setAttribute("for","valPor");
 
     label.appendChild(pVal);
-    label.appendChild(inputVal);
+    container.appendChild(inputVal);
+    container.appendChild("p");
+    label.appendChild(container);
     return label
 }
 
