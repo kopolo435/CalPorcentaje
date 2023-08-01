@@ -252,3 +252,34 @@ footer a{
     color: white;
     padding: 10px;
 }
+
+/*Clases de elementos dentro de formularios para
+añadir nuevos elementos */
+#labelNombrePor{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#labelNombrePor p{
+    font-size: 12px;
+}
+
+#labelValPor{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.inputNew input{
+    background-color: #EAC696;
+    border: none;
+    color: aliceblue;
+    padding: 3px 5px;
+    font-size: 16px;
+}
+
+.inputNew input:focus-visible{
+    outline-color: gray;
+}
