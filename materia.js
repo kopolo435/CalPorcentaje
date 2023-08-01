@@ -1,4 +1,5 @@
 let mostrarNotaList = document.getElementsByClassName("showNotas");
+const addPorcentajeBtn = document.getElementById("addPorcentaje");
 
 Array.from(mostrarNotaList).forEach(button => {
 
