@@ -191,10 +191,22 @@ function createNota(){
     const nota = document.createElement("div");
     const form = document.createElement("form");
     const eliminarBtn = document.createElement("button");
-    const nombreNonta = document.createElement("h3");
-    const notaObt = document.createElement("input");
-    const notaPos = document.createElement("input");
+    const nombreNota = document.createElement("h3");
+    const notaObt = createLabelNotaObt();
+    const notaPos = createLabelNotaPos();
+
     nota.setAttribute("class","nota");
+    form.setAttribute("class","nota");
+    nombreNota.setAttribute("class", "nombreNota");
+    eliminarBtn.setAttribute("class","eliminarBtn");
+
+    form.appendChild(eliminarBtn);
+    form.appendChild(nombreNota);
+    form.appendChild(notaObt);
+    form.appendChild(notaPos);
+    nota.appendChild(form);
+
+    return nota
 }
 /*
 Array.from(addNotaList).forEach(addBtn =>{
