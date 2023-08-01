@@ -46,6 +46,14 @@ function createLabelValPor(){
     return label
 }
 
+function createNewElementForm(){
+    const form = document.createElement("form");
+
+    form.setAttribute("id","newPorcentaje");
+    form.setAttribute("action"," ");
+    return form
+}
+
 Array.from(mostrarNotaList).forEach(button => {
 
     button.addEventListener("click", ()=>{
