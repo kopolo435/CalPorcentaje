@@ -142,7 +142,8 @@ footer a{
 .infoPorcentaje{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3,1fr);
+    grid-template-rows: repeat(3,auto);
+    gap: 20px;
     justify-items: center;
     background-color: #765827;
     color: wheat;
