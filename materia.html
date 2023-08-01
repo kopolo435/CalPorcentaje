@@ -73,7 +73,10 @@
                     <div class="nota">
                         <form class="nota" action="">
                             <button class="eliminarBtn">Eliminar</button>
-                            <h3 class="nombreNota">Nombre nota</h3>
+                            <label for="nombreNota" class="notaObt inputNew">
+                                <p>Nombre nota</p>
+                                <input type="text" placeholder="Portafolio" name="nombreNota" id="nombreNota">
+                            </label>
                             <label id="labelNotaObt" class="notaObt inputNew" for="notaObt">
                                 <p>Nota obtenida</p>
                                 <input type="number" id="notaObt" name="NotaObt" placeholder="0">
@@ -86,41 +89,6 @@
                     </div>
                     <button class="addNota">Agregar Nota</button>
                 </div>
-            </div>
-            <div class="porcentajeContainer">
-                <form id="newPorcentaje" action="">
-                    <div class="infoPorcentaje">
-                        <button class="eliminarPorBtn">Eliminar</button>
-                        <label id="labelNombrePor" class="inputNew" for="nombrePor">
-                            <p>Nombre Porcentaje</p>
-                            <input type="text" id="nombrePor" name="nombrePor" placeholder="Nombre Porcentaje">
-                        </label>
-                        <label id="labelValPor" class="inputNew" for="valPor">
-                            <p>Valor Porcentaje</p>
-                            <div>
-                                <input type="number" id="valPor" placeholder="0" name="valPor">
-                                <p>%</p>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="notasContainer">
-                        <div class="nota">
-                            <form action="">
-                                <button class="eliminarBtn">Eliminar</button>
-                                <h3 class="nombreNota">Nombre nota</h3>
-                                <label id="labelNotaObt" class="notaObt inputNew" for="notaObt">
-                                    <p>Nota obtenida</p>
-                                    <input type="number" id="notaObt" name="NotaObt" placeholder="0">
-                                </label>
-                                <label for="notaPos" id="notaPos" class="notaPos inputNew">
-                                    <p>Nota posible</p>
-                                    <input type="number" id="notaPos" name="notaPos" placeholder="0">
-                                </label>
-                            </form>
-                        </div>
-                        <button class="addNota">Agregar Nota</button>
-                    </div>
-                </form>
             </div>
             <button id="addPorcentaje">Agrega Porcentaje</button>
         </div>
