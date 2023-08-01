@@ -1,7 +1,6 @@
 let mostrarNotaList = document.getElementsByClassName("showNotas");
 const addPorcentajeBtn = document.getElementById("addPorcentaje");
 
-
 function createLabelNombrePor(){
     const label =document.createElement("label");
     const pNombre = document.createElement("p");
@@ -71,3 +70,25 @@ Array.from(mostrarNotaList).forEach(button => {
     notasContainer.style.display = notasContainer.style.display === "none" ? "grid" : "none";
     })
 });
+
+addPorcentajeBtn.addEventListener("click", button=>{
+    const materiasContainer = button.closest(".materiasContainer");
+    const form = createNewElementForm();
+    const nombreLabel = createLabelNombrePor();
+    const valLabel = createLabelValPor();
+    const eliminarBtn = document.createElement("button");
+    const porcentajeContainer = document.createElement("div");
+    const infoPorContainer = document.createElement("div");
+
+    eliminarBtn.textContent = "Eliminar";
+    eliminarBtn.setAttribute("class","eliminarBtn");
+    porcentajeContainer.setAttribute("class","porcentajeContainer");
+    infoPorContainer.setAttribute("class", "infoPorcentaje");
+    
+    infoPorContainer.appendChild(eliminarBtn);
+    infoPorContainer.appendChild(nombreLabel);
+    infoPorContainer.appendChild(valLabel);
+    form.append(infoPorContainer);
+    porcentajeContainer.append(form);
+
+})
