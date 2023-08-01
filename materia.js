@@ -96,6 +96,10 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     porcentajeContainer.append(form);
     materiasCon.insertBefore(porcentajeContainer,materiasCon.lastElementChild);
     addPorcentajeBtn.setAttribute("disabled","true");
+    const addNotaBtnLista = document.getElementsByClassName("addNota");
+    Array.from(addNotaBtnLista).forEach(button =>{
+        button.disabled = true;
+    })
 })
 
 function EliminarPorEvent(button){
