@@ -103,10 +103,7 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     porcentajeContainer.append(form);
     materiasCon.insertBefore(porcentajeContainer,materiasCon.lastElementChild);
     addPorcentajeBtn.setAttribute("disabled","true");
-    const addNotaBtnLista = document.getElementsByClassName("addNota");
-    Array.from(addNotaBtnLista).forEach(button =>{
-        button.disabled = true;
-    })
+    changeDisabledNota(true);
 })
 
 function EliminarPorEvent(button){
@@ -118,10 +115,7 @@ function EliminarPorEvent(button){
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             addPorcentajeBtn.disabled = false;
-            const addNotaBtnLista = document.getElementsByClassName("addNota");
-            Array.from(addNotaBtnLista).forEach(button =>{
-                button.disabled = false;
-            })
+            changeDisabledNota(false);
         }
     })
 }
@@ -135,9 +129,7 @@ function eliminarNotaEvent(button){
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             const addNotaBtnLista = document.getElementsByClassName("addNota");
-            Array.from(addNotaBtnLista).forEach(button =>{
-                button.disabled = false;
-            })
+            changeDisabledNota(false);
             addPorcentajeBtn.disabled = false;
         }
     })
