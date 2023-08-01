@@ -215,6 +215,9 @@ function createNota(){
     const notaPos = createLabelNotaPos();
     const nombreLabel = createLabelNombreNota();
 
+    eliminarBtn.textContent = "Eliminar"
+    eliminarNotaEvent(eliminarBtn);
+    
     nota.setAttribute("class","nota");
     form.setAttribute("class","nota");
     eliminarBtn.setAttribute("class","eliminarBtn");
