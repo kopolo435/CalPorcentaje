@@ -45,7 +45,7 @@ function createLabelValPor(){
 
     label.appendChild(pVal);
     container.appendChild(inputVal);
-    container.appendChild("p");
+    container.appendChild(pPorncetaje);
     label.appendChild(container);
     return label
 }
@@ -71,8 +71,8 @@ Array.from(mostrarNotaList).forEach(button => {
     })
 });
 
-addPorcentajeBtn.addEventListener("click", button=>{
-    const materiasContainer = button.closest(".materiasContainer");
+addPorcentajeBtn.addEventListener("click", ()=>{
+    const materiasContainer = addPorcentajeBtn.closest(".materiasContainer");
     const form = createNewElementForm();
     const nombreLabel = createLabelNombrePor();
     const valLabel = createLabelValPor();
@@ -90,5 +90,6 @@ addPorcentajeBtn.addEventListener("click", button=>{
     infoPorContainer.appendChild(valLabel);
     form.append(infoPorContainer);
     porcentajeContainer.append(form);
+    materiasContainer.insertBefore(porcentajeContainer,materiasContainer.lastElementChild);
 
 })
