@@ -167,10 +167,10 @@ function createLabelNotaObt(){
 
 function createLabelNotaPos(){
     const label = document.createElement("label");
-    const notaObt = document.createElement("p");
+    const notaPos = document.createElement("p");
     const inputNotaPos = document.createElement("input");
 
-    notaObt.textContent = "Nota Posible";
+    notaPos.textContent = "Nota Posible";
 
     label.setAttribute("id","labelNotaPos");
     label.setAttribute("class","notaPos inputNew");
@@ -187,31 +187,56 @@ function createLabelNotaPos(){
 
 }
 
+function createLabelNombreNota(){
+    const label = document.createElement("label");
+    const nombreNota = document.createElement("input");
+    const pNombre = document.createElement("p");
+
+    pNombre.textContent = "Nombre nota"
+
+    label.setAttribute("class","inputNew nombreNota");
+    label.setAttribute("for","nombreNota");
+    nombreNota.setAttribute("type","text");
+    nombreNota.setAttribute("placeholder","Portafolio");
+    nombreNota.setAttribute("name","nombreNota");
+    nombreNota.setAttribute("id","nombreNota");
+
+    label.appendChild(pNombre);
+    label.appendChild(nombreNota);
+
+    return label
+}
+
 function createNota(){
     const nota = document.createElement("div");
     const form = document.createElement("form");
     const eliminarBtn = document.createElement("button");
-    const nombreNota = document.createElement("h3");
     const notaObt = createLabelNotaObt();
     const notaPos = createLabelNotaPos();
+    const nombreLabel = createLabelNombreNota();
 
     nota.setAttribute("class","nota");
     form.setAttribute("class","nota");
-    nombreNota.setAttribute("class", "nombreNota");
     eliminarBtn.setAttribute("class","eliminarBtn");
 
     form.appendChild(eliminarBtn);
-    form.appendChild(nombreNota);
+    form.appendChild(nombreLabel);
     form.appendChild(notaObt);
     form.appendChild(notaPos);
     nota.appendChild(form);
 
     return nota
 }
-/*
+
 Array.from(addNotaList).forEach(addBtn =>{
-    addBtn.addEventListener("click", =>{
+    addBtn.addEventListener("click",()=>{
+        const nota = createNota();
+        const notasContainer = addBtn.closest(".notasContainer");
+
+        notasContainer.insertBefore(nota,notasContainer.lastElementChild);
+
+        addPorcentajeBtn.disabled = true;
+        changeDisabledNota(true);
 
     })
 })
-*/
