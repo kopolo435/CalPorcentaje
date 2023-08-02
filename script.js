@@ -15,6 +15,6 @@ addMateBtn.addEventListener("click", ()=> {
     materia.appendChild(nombreMate);
     materia.appendChild(estadoNota);
     materia.appendChild(porcentaje);
-    mateContainer.appendChild(materia)
+    mateContainer.insertBefore(materia,mateContainer.lastElementChild);
 
 })
