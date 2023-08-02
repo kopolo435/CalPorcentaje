@@ -1,5 +1,6 @@
 let addMateBtn = document.getElementById("addMateria"); //Materia sera abreviado como Mate
 let mateContainer = document.getElementById("listaMaterias");
+let eliminarMateBtnLista = document.getElementsByClassName("eliminarBtn");
 addMateBtn.addEventListener("click", ()=> {
     let materia = document.createElement("div");
     let nombreMate = document.createElement("h2");
@@ -17,4 +18,20 @@ addMateBtn.addEventListener("click", ()=> {
     materia.appendChild(porcentaje);
     mateContainer.insertBefore(materia,mateContainer.lastElementChild);
 
+})
+
+function eliminarNotaEvent(button){
+    button.addEventListener("click", () =>{
+        const eliminarParent = button.parentNode.parentNode;
+        if(eliminarParent.nodeName !="FORM"){
+            eliminarParent.removeChild(button.parentNode);
+        }
+        else{
+            eliminarParent.parentNode.removeChild(eliminarParent);
+        }
+    })
+}
+
+Array.from(eliminarMateBtnLista).forEach(eliminarBtn =>{
+    eliminarNotaEvent(eliminarBtn);
 })
