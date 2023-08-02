@@ -62,9 +62,9 @@ h1{
 .materia{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: #765827;
-    color: white;
+    color: wheat;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 10px 20px;
@@ -72,14 +72,16 @@ h1{
 
 .nombreMateria{
     grid-column: 1/2;
-    grid-row: 1/2;
-    align-self: flex-start;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
 }
 
 .estadoNota{
-    grid-column: 1/2;
-    grid-row: 2/3;
-    align-self: flex-end;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: flex-start;
 }
 
 .porcentaje{

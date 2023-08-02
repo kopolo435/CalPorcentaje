@@ -25,30 +25,28 @@
 
         <div class="materiasContainer" id="listaMaterias">
             <div class="materia">
+                <button class="eliminarBtn">Eliminar</button>
                 <h2 class="nombreMateria">Nombre</h2>
                 <p class="estadoNota">Estado nota</p>
                 <p class="porcentaje">Porcentaje conseguido</p>
             </div>
             <div class="materia">
+                <button class="eliminarBtn">Eliminar</button>
                 <h2 class="nombreMateria">Nombre</h2>
                 <p class="estadoNota">Estado nota</p>
                 <p class="porcentaje">Porcentaje conseguido</p>
             </div>
-            <div class="materia">
-                <h2 class="nombreMateria">Nombre</h2>
-                <p class="estadoNota">Estado nota</p>
-                <p class="porcentaje">Porcentaje conseguido</p>
-            </div>
-            <div class="materia">
-                <h2 class="nombreMateria">Nombre</h2>
-                <p class="estadoNota">Estado nota</p>
-                <p class="porcentaje">Porcentaje conseguido</p>
-            </div>
-            <div class="materia">
-                <h2 class="nombreMateria">Nombre</h2>
-                <p class="estadoNota">Estado nota</p>
-                <p class="porcentaje">Porcentaje conseguido</p>
-            </div>
+            <form action="">
+                <div class="materia">
+                    <button class="eliminarBtn">Eliminar</button>
+                    <label for="nomMateria" class="inputNew">
+                        <p>Nombre Materia</p>
+                        <input type="text" id="nomMateria" placeholder="Ingles" name="nomMateria">
+                    </label>
+                    <input type="text" value="no" name="estadoNota" hidden>
+                    <input type="number" value="0" name="porcentaje" hidden>
+                </div>
+            </form>
             <button class="addMateria" id="addMateria">Añadir nueva materia</button>
         </div>
         <button class="guardarBtn">Guardar</button>
