@@ -11,6 +11,7 @@ function createNomMateLabel(){
 
     label.setAttribute("class","inputNew");
     label.setAttribute("for","nomMateria");
+    label.classList.add("inputNew");
     inputNombre.setAttribute("type","text");
     inputNombre.setAttribute("id","nomMateria");
     inputNombre.setAttribute("placeholder","Ingles");
@@ -46,8 +47,23 @@ function createPorInput(){
 
 addMateBtn.addEventListener("click", ()=> {
     let materia = document.createElement("div");
+    const nombreLabel = createNomMateLabel();
+    const estadoInput = createEstadoInput();
+    const porInput = createPorInput();
+    const eliminarBtn = document.createElement("button");
+    const form = document.createElement("form");
+
+    eliminarBtn.textContent = "Eliminar"
+    eliminarNotaEvent(eliminarBtn);
+
+    eliminarBtn.classList.add("eliminarBtn")
     materia.classList.add("materia");
-    mateContainer.insertBefore(materia,mateContainer.lastElementChild);
+    materia.appendChild(eliminarBtn);
+    materia.appendChild(nombreLabel);
+    materia.appendChild(estadoInput);
+    materia.appendChild(porInput);
+    form.appendChild(materia)
+    mateContainer.insertBefore(form,mateContainer.lastElementChild);
     addMateBtn.disabled = true;
 
 })
