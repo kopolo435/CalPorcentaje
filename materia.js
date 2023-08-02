@@ -82,6 +82,18 @@ function changeDisabledNota(boolean){
     })
 }
 
+function createNombreMateInput(){
+    const input = document.createElement("input");
+    const nombreMate = addPorcentajeBtn.closest("h1").textContent
+
+    input.setAttribute("type",Text);
+    input.setAttribute("name","nombreMate");
+    input.setAttribute("value",nombreMate);
+    input.hidden = true;
+
+    return input
+}
+
 addPorcentajeBtn.addEventListener("click", ()=>{
     const form = createNewElementForm();
     const nombreLabel = createLabelNombrePor();
@@ -101,6 +113,7 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     infoPorContainer.appendChild(valLabel);
     form.append(infoPorContainer);
     porcentajeContainer.append(form);
+
     materiasCon.insertBefore(porcentajeContainer,materiasCon.lastElementChild);
     addPorcentajeBtn.setAttribute("disabled","true");
     changeDisabledNota(true);
