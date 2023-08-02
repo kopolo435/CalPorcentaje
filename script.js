@@ -22,6 +22,28 @@ function createNomMateLabel(){
     return label
 }
 
+function createEstadoInput(){
+    let inputEstado = document.createElement("input");
+
+    inputEstado.setAttribute("type","text");
+    inputEstado.setAttribute("value","no");
+    inputEstado.setAttribute("name","estadoNota");
+    inputEstado.hidden = true;
+
+    return inputEstado
+}
+
+function createPorInput(){
+    let inputPor = document.createElement("input");
+
+    inputPor.setAttribute("type","number");
+    inputPor.setAttribute("value","0");
+    inputPor.setAttribute("name","porcentaje");
+    inputPor.hidden = true;
+
+    return inputPor
+}
+
 addMateBtn.addEventListener("click", ()=> {
     let materia = document.createElement("div");
     materia.classList.add("materia");
