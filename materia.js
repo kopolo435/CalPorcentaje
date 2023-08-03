@@ -222,13 +222,26 @@ function createLabelNombreNota(){
     return label
 }
 
-function createNota(){
+function createNombrePorInput(notasContainer){
+    const input = document.createElement("input");
+    const nombreMate = 
+
+    input.setAttribute("type","text");
+    input.setAttribute("name","nombreMate");
+    input.setAttribute("value",nombreMate.textContent);
+    input.hidden = true;
+
+    return input
+}
+
+function createNota(notasContainer){
     const nota = document.createElement("div");
     const form = document.createElement("form");
     const eliminarBtn = document.createElement("button");
     const notaObt = createLabelNotaObt();
     const notaPos = createLabelNotaPos();
     const nombreLabel = createLabelNombreNota();
+    const nombrePorInput = createNombrePorInput(notasContainer);
 
     eliminarBtn.textContent = "Eliminar"
     eliminarNotaEvent(eliminarBtn);
@@ -248,8 +261,8 @@ function createNota(){
 
 Array.from(addNotaList).forEach(addBtn =>{
     addBtn.addEventListener("click",()=>{
-        const nota = createNota();
         const notasContainer = addBtn.closest(".notasContainer");
+        const nota = createNota(notasContainer);
 
         notasContainer.insertBefore(nota,notasContainer.lastElementChild);
 
