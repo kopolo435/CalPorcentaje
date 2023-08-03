@@ -24,7 +24,7 @@
     </nav>
 
     <main>
-        <h1 id="nombreMate">Notas nombre materia</h1>
+        <h1 id="nombreMate">biologia</h1>
         <div class="estadoMateria">
             <p>Estado de notas</p>
             <p class="estado">Completado/En progreso</p>
@@ -82,7 +82,7 @@
             <p>Como funciona</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, sapiente?</p>
         </div>
-        <button class="guardarBtn">Guardar</button>
+        <button class="guardarBtn" type="submit" form="newForm">Guardar</button>
     </main>
 
     <footer>

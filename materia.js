@@ -18,9 +18,9 @@ function createLabelNombrePor(){
     
     pNombre.textContent = "Nombre Porcentaje"; 
 
-    inputNombre.setAttribute("name", "nomrePor"); //Coloca los atributos necesarios del input
+    inputNombre.setAttribute("name", "nombrePor"); //Coloca los atributos necesarios del input
     inputNombre.setAttribute("type", "text");   
-    inputNombre.setAttribute("id", "nomrePor");
+    inputNombre.setAttribute("id", "nombrePor");
     inputNombre.setAttribute("placeholder","Portafolio");
 
     label.setAttribute("id","labelNombrePor");//Coloca los atributos necesarios del label

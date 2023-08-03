@@ -18,7 +18,7 @@
     <nav>
         <ul>
             <li><a href="home.html">Inicio</a></li>
-            <li><a href="">Lorem</a></li>
+            <li><a href="materia.jsp">Lorem</a></li>
             <li><a href="">Lorem</a></li>
         </ul>
     </nav>
