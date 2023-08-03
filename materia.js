@@ -222,26 +222,28 @@ function createLabelNombreNota(){
     return label
 }
 
-function createNombrePorInput(notasContainer){
+function createNombrePorInput(porContainer){
     const input = document.createElement("input");
-    const nombreMate = 
+    let nombrePor = porContainer.getElementsByClassName("infoPorcentaje");
+    nombrePor = nombrePor[0].getElementsByClassName("nombrePorcentaje");
+    nombrePor = nombrePor[0];
 
     input.setAttribute("type","text");
-    input.setAttribute("name","nombreMate");
-    input.setAttribute("value",nombreMate.textContent);
+    input.setAttribute("name","nombrePor");
+    input.setAttribute("value",nombrePor.textContent);
     input.hidden = true;
 
     return input
 }
 
-function createNota(notasContainer){
+function createNota(porContainer){
     const nota = document.createElement("div");
     const form = document.createElement("form");
     const eliminarBtn = document.createElement("button");
     const notaObt = createLabelNotaObt();
     const notaPos = createLabelNotaPos();
     const nombreLabel = createLabelNombreNota();
-    const nombrePorInput = createNombrePorInput(notasContainer);
+    const nombrePorInput = createNombrePorInput(porContainer);
 
     eliminarBtn.textContent = "Eliminar"
     eliminarNotaEvent(eliminarBtn);
@@ -254,6 +256,7 @@ function createNota(notasContainer){
     form.appendChild(nombreLabel);
     form.appendChild(notaObt);
     form.appendChild(notaPos);
+    form.append(nombrePorInput);
     nota.appendChild(form);
 
     return nota
@@ -262,7 +265,8 @@ function createNota(notasContainer){
 Array.from(addNotaList).forEach(addBtn =>{
     addBtn.addEventListener("click",()=>{
         const notasContainer = addBtn.closest(".notasContainer");
-        const nota = createNota(notasContainer);
+        const porContainer = addBtn.closest(".porcentajeContainer");
+        const nota = createNota(porContainer);
 
         notasContainer.insertBefore(nota,notasContainer.lastElementChild);
 
