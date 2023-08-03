@@ -55,6 +55,8 @@ addMateBtn.addEventListener("click", ()=> {
 
     eliminarBtn.textContent = "Eliminar"
     eliminarNotaEvent(eliminarBtn);
+    form.setAttribute("id","newMateria");
+    form.setAttribute("action","newMateria.jsp");
 
     eliminarBtn.classList.add("eliminarBtn")
     materia.classList.add("materia");
