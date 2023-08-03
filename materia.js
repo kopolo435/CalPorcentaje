@@ -84,11 +84,11 @@ function changeDisabledNota(boolean){
 
 function createNombreMateInput(){
     const input = document.createElement("input");
-    const nombreMate = addPorcentajeBtn.closest("h1").textContent
+    const nombreMate = document.getElementById("nombreMate");
 
-    input.setAttribute("type",Text);
+    input.setAttribute("type","text");
     input.setAttribute("name","nombreMate");
-    input.setAttribute("value",nombreMate);
+    input.setAttribute("value",nombreMate.textContent);
     input.hidden = true;
 
     return input
@@ -101,6 +101,7 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     const eliminarBtn = document.createElement("button");
     const porcentajeContainer = document.createElement("div");
     const infoPorContainer = document.createElement("div");
+    const nombreMateInput = createNombreMateInput();
 
     eliminarBtn.textContent = "Eliminar";
     eliminarBtn.setAttribute("class","eliminarPorBtn");
@@ -112,6 +113,7 @@ addPorcentajeBtn.addEventListener("click", ()=>{
     infoPorContainer.appendChild(nombreLabel);
     infoPorContainer.appendChild(valLabel);
     form.append(infoPorContainer);
+    form.append(nombreMateInput);
     porcentajeContainer.append(form);
 
     materiasCon.insertBefore(porcentajeContainer,materiasCon.lastElementChild);
