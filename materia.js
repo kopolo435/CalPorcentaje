@@ -69,8 +69,8 @@ Funcion que crea el form que almacenara las distintas labels
 function createNewElementForm(){
     const form = document.createElement("form");
 
-    form.setAttribute("id","newPorcentaje");
-    form.setAttribute("action"," ");
+    form.setAttribute("id","newForm");
+    form.setAttribute("action","newPor.jsp");
     return form
 }
 
@@ -234,6 +234,8 @@ function createNota(porContainer){
     
     nota.setAttribute("class","nota");
     form.setAttribute("class","nota");
+    form.setAttribute("id","newForm");
+    form.setAttribute("action","newNota.jsp");
     eliminarBtn.setAttribute("class","eliminarBtn");
 
     form.appendChild(eliminarBtn);
