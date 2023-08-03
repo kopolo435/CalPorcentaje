@@ -39,44 +39,56 @@
                 <p class="estadoNota">Estado nota</p>
                 <p class="porcentaje">Porcentaje conseguido</p>
             </div>
+		    <% 
+		    try {
+		        //Conexion a la base de datos
+		        Class.forName("com.mysql.jdbc.Driver");
+		        Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+		        String userIdStr = (String) session.getAttribute("userId");; // Assuming userId is stored as an int in the session
+		        int userId = Integer.parseInt(userIdStr);
+		        // Prepare the SELECT query
+		        String selectQuery = "SELECT mat_nombre, mat_porcentaje, mat_estado FROM materias WHERE mat_usu_id = ?";
+		        PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
+		        pstmt.setInt(1, userId);
+		
+		        // Execute the SELECT query
+		        ResultSet rs = pstmt.executeQuery();
+		
+		        // Process the results and insert HTML elements
+		        while (rs.next()) {
+		            String mat_nombre = rs.getString("mat_nombre");
+		            String mat_porcentaje = rs.getString("mat_porcentaje");
+		            String mat_estado = rs.getString("mat_estado");
+		            if(mat_estado.equals("si")){
+		            	mat_estado = "Pasaste";
+		            }
+		            else{
+		            	mat_estado = "Fracaste";
+		            }
+		    %>
+		            <!-- HTML elements to display data -->
+		            <div class="materia">
+		                <button class="eliminarBtn">Eliminar</button>
+		                <h2 class="nombreMateria"> <%= mat_nombre %></h2>
+		                <p class="estadoNota"><%= mat_estado %></p>
+		                <p class="porcentaje"><%= mat_porcentaje %></p>
+		            </div>
+		            
+		    <%
+		        }
+		
+		        // Close the resources
+		        rs.close();
+		        pstmt.close();
+		        dbconect.close();
+		
+		    } catch (Exception e) {
+		        // Handle the exception
+		        e.printStackTrace();
+		    }
+		    %>
             <button class="addMateria" id="addMateria">Añadir nueva materia</button>
         </div>
-        <%
-        try {
-            //Conexion a la base de datos
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
-            
-            int userId = (int) session.getAttribute("userId"); // Assuming userId is stored as an int in the session
-
-            // Prepare the SELECT query
-            String selectQuery = "SELECT mat_nombre, mat_porcentaje, mat_estado FROM materias WHERE mat_usu_id = ?";
-            PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
-            pstmt.setInt(1, userId);
-
-            // Execute the SELECT query
-            ResultSet rs = pstmt.executeQuery();
-
-            // Process the results
-            while (rs.next()) {
-                String mat_nombre = rs.getString("mat_nombre");
-                String mat_porcentaje = rs.getString("mat_porcentaje");
-                String mat_estado = rs.getString("mat_estado");
-                
-                // Do whatever you want with the retrieved data (e.g., display it in HTML)
-                out.println("Materia: " + mat_nombre + ", Porcentaje: " + mat_porcentaje + ", Estado: " + mat_estado + "<br>");
-            }
-
-            // Close the resources
-            rs.close();
-            pstmt.close();
-            dbconect.close();
-
-        } catch (Exception e) {
-            // Handle the exception
-            e.printStackTrace();
-        }
-        %>
         <button type="submit" form="newMateria" class="guardarBtn" for>Guardar</button>
     </main>
 
