@@ -18,7 +18,7 @@
 
     <nav>
         <ul>
-            <li><a href="home.html">Inicio</a></li>
+            <li><a href="home.jsp">Inicio</a></li>
             <li><a href="">Lorem</a></li>
             <li><a href="">Lorem</a></li>
         </ul>
@@ -32,6 +32,7 @@
         </div>
         <div class="materiasContainer" id="materiasCon">
 			<% 
+			float porcentajeTotalMateria = 0;
 		    try {
 		        //Conexion a la base de datos
 		        Class.forName("com.mysql.jdbc.Driver");
@@ -106,6 +107,7 @@
 	                   	}
                    		porcentajeObtenido = ((Float.parseFloat(por_porcentaje)/100)*porcentajeObtenido)*100;
                    		porcentajeObtenido = Float.parseFloat(String.format("%.2f", porcentajeObtenido));
+                   		porcentajeTotalMateria += porcentajeObtenido;
                    		
                    		//Actualizacion de porcentaje en la Base de datos
                    		try {
@@ -139,6 +141,8 @@
                    		    out.println("An error occurred: " + e.getMessage());
                    		    e.printStackTrace();
                    		}
+                   		
+                   		
 		   			 %>
                     <button class="addNota">Agregar Nota</button>
                 </div>
@@ -162,6 +166,39 @@
 		        // Handle the exception
 		        e.printStackTrace();
 		    }
+			
+			//Actualizamos el porcentaje en la materia
+			try {
+			    // Establish a database connection
+			    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+			    
+			    // Values to update
+			    int matId = (int) session.getAttribute("currentIdMateria");  // Replace with the actual mat_id value
+			    String newMatPorcentaje = String.format("%.2f", porcentajeTotalMateria);  // Replace with the desired new value
+			    
+			    // Create the SQL update statement
+			    String updateQuery = "UPDATE materias SET mat_porcentaje = ? WHERE mat_id = ?";
+			    
+			    // Create a PreparedStatement
+			    PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
+			    preparedStatement.setString(1, newMatPorcentaje);
+			    preparedStatement.setInt(2, matId);
+			    
+			    // Execute the update
+			    int rowsAffected = preparedStatement.executeUpdate();
+			    
+			    if (rowsAffected > 0) {
+			    } else {
+			        out.println("Update failed!");
+			    }
+			    
+			    // Close resources
+			    preparedStatement.close();
+			    conn.close();
+			} catch (Exception e) {
+			    out.println("An error occurred: " + e.getMessage());
+			    e.printStackTrace();
+			}
 		    %>
             <button id="addPorcentaje">Agrega Porcentaje</button>
         </div>
