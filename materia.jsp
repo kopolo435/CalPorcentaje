@@ -24,7 +24,8 @@
     </nav>
 
     <main>
-        <h1 id="nombreMate">biologia</h1>
+    <% String materiaName = (String) session.getAttribute("currentMateria");%>
+        <h1 id="nombreMate"><%= materiaName %></h1>
         <div class="estadoMateria">
             <p>Estado de notas</p>
             <p class="estado">Completado/En progreso</p>
