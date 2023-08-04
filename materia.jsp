@@ -44,10 +44,10 @@
 		
 		        // Execute the SELECT query
 		        ResultSet rs = pstmt.executeQuery();
-			    float notaTotalConseguida = 0;
-			 	float notaTotalPosible = 0;
 		        // Process the results and insert HTML elements
 		        while (rs.next()) {
+				    float notaTotalConseguida = 0;
+				 	float notaTotalPosible = 0;
 		            String por_nombre = rs.getString("por_nombre");
 		            String por_porcentaje = rs.getString("por_porcentaje");
 					int por_id = rs.getInt("por_id");
@@ -77,6 +77,7 @@
 					     notaTotalConseguida +=  Float.parseFloat(nota_obtenida);
 						 notaTotalPosible +=  Float.parseFloat(nota_posible) ;
 						 
+						 
 		    		%>
 		            <!-- HTML elements to display data -->
                     <div class="nota">
@@ -97,16 +98,55 @@
 		        		// Handle the exception
 		        		e.printStackTrace();
 		    			}
-                   		Float porcentajeObtenido = (notaTotalConseguida/notaTotalPosible);
+	                   	Float porcentajeObtenido;
+	                   	if (notaTotalPosible != 0) {
+	                   	    porcentajeObtenido = (notaTotalConseguida / notaTotalPosible);
+	                   	} else {
+	                   	    porcentajeObtenido = 0.0f; // Or some other value you choose when denominator is zero
+	                   	}
                    		porcentajeObtenido = ((Float.parseFloat(por_porcentaje)/100)*porcentajeObtenido)*100;
+                   		porcentajeObtenido = Float.parseFloat(String.format("%.2f", porcentajeObtenido));
+                   		
+                   		//Actualizacion de porcentaje en la Base de datos
+                   		try {
+                   		    // Establish a database connection
+                   		    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+                   		    
+                   		    // Values to update
+                   		    int porId = por_id;  // Replace with the actual por_id value
+                   		    float newObtenidoPorcentaje = porcentajeObtenido;  // Replace with the desired new value
+                   		    
+                   		    // Create the SQL update statement
+                   		    String updateQuery = "UPDATE porcentajes SET por_obtenido_porcentaje = ? WHERE por_id = ?";
+                   		    
+                   		    // Create a PreparedStatement
+                   		    PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
+                   		    preparedStatement.setFloat(1, newObtenidoPorcentaje);
+                   		    preparedStatement.setInt(2, porId);
+                   		    
+                   		    // Execute the update
+                   		    int rowsAffected = preparedStatement.executeUpdate();
+                   		    
+                   		    if (rowsAffected > 0) {
+                   		    } else {
+                   		        out.println("Update failed!");
+                   		    }
+                   		    
+                   		    // Close resources
+                   		    preparedStatement.close();
+                   		    conn.close();
+                   		} catch (Exception e) {
+                   		    out.println("An error occurred: " + e.getMessage());
+                   		    e.printStackTrace();
+                   		}
 		   			 %>
                     <button class="addNota">Agregar Nota</button>
                 </div>
                 <div class="infoPorcentaje">
                     <button class="eliminarPorBtn">Eliminar</button>
                     <h2 class="nombrePorcentaje"><%=por_nombre %></h2>
-                    <p class="valorPorcentaje">Porcenaje Obtenido<%=porcentajeObtenido%>%</p>
-                    <p class="valorPorcentaje">Porcenaje Posible<%= por_porcentaje%>%</p>
+                    <p class="valorPorcentajeObt">Porcenaje Obtenido: <%=porcentajeObtenido%>%</p>
+                    <p class="valorPorcentaje">Porcenaje Posible: <%= por_porcentaje%>%</p>
                     <button class="showNotas">Mostrar notas</button>
                 </div>
             </div>
