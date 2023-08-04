@@ -38,7 +38,7 @@
 		        Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
 		        // Prepare the SELECT query
 				int mat_id = (int) session.getAttribute("currentIdMateria");
-		        String selectQuery = "SELECT por_nombre, por_porcentaje FROM porcentajes WHERE por_mate_id = ?";
+		        String selectQuery = "SELECT por_id,por_nombre, por_porcentaje FROM porcentajes WHERE por_mate_id = ?";
 		        PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
 		        pstmt.setInt(1, mat_id);
 		
@@ -49,6 +49,7 @@
 		        while (rs.next()) {
 		            String por_nombre = rs.getString("por_nombre");
 		            String por_porcentaje = rs.getString("por_porcentaje");
+					int por_id = rs.getInt("por_id");
 		    %>
 		            <!-- HTML elements to display data -->
             <div class="porcentajeContainer">
@@ -59,25 +60,51 @@
                     <button class="showNotas">Mostrar notas</button>
                 </div>
                 <div class="notasContainer">
+                   	<% 
+		    		try {
+		    		   	//Conexion a la base de datos
+		      		  	Class.forName("com.mysql.jdbc.Driver");
+		       		 	Connection dbconect2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+		       		 	// Prepare the SELECT query
+		       		 	String selectQuery2 = "SELECT nota_nombre,nota_nota_pos,nota_nota_obt FROM notas WHERE nota_por_id = ?";
+		     		   	PreparedStatement pstmt2 = dbconect2.prepareStatement(selectQuery2);
+		      		  	pstmt2.setInt(1, por_id);
+		
+		      		  	// Execute the SELECT query
+		      		  	ResultSet rs2 = pstmt2.executeQuery();
+		
+		      		  	// Process the results and insert HTML elements
+		      		  	while (rs2.next()) {
+		           		 String nota_nombre = rs2.getString("nota_nombre");
+		           		 String nota_posible = rs2.getString("nota_nota_pos");
+						 String nota_obtenida = rs2.getString("nota_nota_obt");
+		    		%>
+		            <!-- HTML elements to display data -->
                     <div class="nota">
                         <button class="eliminarBtn">Eliminar</button>
-                        <h3 class="nombreNota">Nombre nota</h3>
-                        <p class="notaObt">Nota obtenida</p>
-                        <p class="notaPos">Nota posible</p>
+                        <h3 class="nombreNota"><%=nota_nombre%></h3>
+                        <p class="notaObt"><%= nota_obtenida%></p>
+                        <p class="notaPos"><%= nota_posible%></p>
                     </div>
-                    <div class="nota">
-                        <button class="eliminarBtn">Eliminar</button>
-                        <h3 class="nombreNota">Nombre nota</h3>
-                        <p class="notaObt">Nota obtenida</p>
-                        <p class="notaPos">Nota posible</p>
-                    </div>
+		            
+		    		<%
+		        		}
+		        		// Close the resources
+		        		rs2.close();
+		        		pstmt2.close();
+		        		dbconect2.close();
+		
+		    			} catch (Exception e) {
+		        		// Handle the exception
+		        		e.printStackTrace();
+		    			}
+		   			 %>
                     <button class="addNota">Agregar Nota</button>
                 </div>
             </div>
 		            
 		    <%
 		        }
-		
 		        // Close the resources
 		        rs.close();
 		        pstmt.close();

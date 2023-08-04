@@ -26,7 +26,6 @@
 		    pstmt.setInt(2, userId);
 		    // Execute the SELECT query
 		    ResultSet rs = pstmt.executeQuery();
-		    //Error al momento de conseguir la fila que devuelve la consulta
 		    // Process the result
 		    if (rs.next()) {
 		        mat_id = rs.getInt("mat_id");
