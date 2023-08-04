@@ -49,7 +49,8 @@
 		    e.printStackTrace();
 		    out.println("Un error en la consulta ocurrio");
 		}
-    	response.sendRedirect("materia.jsp");
+
+		response.sendRedirect("materia.jsp");
 	%>
 	
 </body>

@@ -6,7 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NombreMateria</title>
+    <% String materiaName = (String) session.getAttribute("currentMateria");%>
+    <title>Notas <%= materiaName %></title>
     <link rel="stylesheet" href="style.css">
     <script src="materia.js" defer></script>
 </head>
@@ -24,18 +25,37 @@
     </nav>
 
     <main>
-    <% String materiaName = (String) session.getAttribute("currentMateria");%>
         <h1 id="nombreMate"><%= materiaName %></h1>
         <div class="estadoMateria">
             <p>Estado de notas</p>
             <p class="estado">Completado/En progreso</p>
         </div>
         <div class="materiasContainer" id="materiasCon">
+			<% 
+		    try {
+		        //Conexion a la base de datos
+		        Class.forName("com.mysql.jdbc.Driver");
+		        Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+		        // Prepare the SELECT query
+				int mat_id = (int) session.getAttribute("currentIdMateria");
+		        String selectQuery = "SELECT por_nombre, por_porcentaje FROM porcentajes WHERE por_mate_id = ?";
+		        PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
+		        pstmt.setInt(1, mat_id);
+		
+		        // Execute the SELECT query
+		        ResultSet rs = pstmt.executeQuery();
+		
+		        // Process the results and insert HTML elements
+		        while (rs.next()) {
+		            String por_nombre = rs.getString("por_nombre");
+		            String por_porcentaje = rs.getString("por_porcentaje");
+		    %>
+		            <!-- HTML elements to display data -->
             <div class="porcentajeContainer">
                 <div class="infoPorcentaje">
                     <button class="eliminarPorBtn">Eliminar</button>
-                    <h2 class="nombrePorcentaje">Nombre Porcentaje</h2>
-                    <p class="valorPorcentaje">Porcentaje</p>
+                    <h2 class="nombrePorcentaje"><%=por_nombre %></h2>
+                    <p class="valorPorcentaje"><%= por_porcentaje%>%</p>
                     <button class="showNotas">Mostrar notas</button>
                 </div>
                 <div class="notasContainer">
@@ -54,40 +74,6 @@
                     <button class="addNota">Agregar Nota</button>
                 </div>
             </div>
-			<% 
-		    try {
-		        //Conexion a la base de datos
-		        Class.forName("com.mysql.jdbc.Driver");
-		        Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
-		        String userIdStr = (String) session.getAttribute("userId");; // Assuming userId is stored as an int in the session
-		        int userId = Integer.parseInt(userIdStr);
-		        // Prepare the SELECT query
-		        String selectQuery = "SELECT mat_nombre, mat_porcentaje, mat_estado FROM materias WHERE mat_usu_id = ?";
-		        PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
-		        pstmt.setInt(1, userId);
-		
-		        // Execute the SELECT query
-		        ResultSet rs = pstmt.executeQuery();
-		
-		        // Process the results and insert HTML elements
-		        while (rs.next()) {
-		            String mat_nombre = rs.getString("mat_nombre");
-		            String mat_porcentaje = rs.getString("mat_porcentaje");
-		            String mat_estado = rs.getString("mat_estado");
-		            if(mat_estado.equals("si")){
-		            	mat_estado = "Pasaste";
-		            }
-		            else{
-		            	mat_estado = "Fracaste";
-		            }
-		    %>
-		            <!-- HTML elements to display data -->
-		            <div class="materia">
-		                <button class="eliminarBtn">Eliminar</button>
-		                <h2 class="nombreMateria"> <%= mat_nombre %></h2>
-		                <p class="estadoNota"><%= mat_estado %></p>
-		                <p class="porcentaje"><%= mat_porcentaje %></p>
-		            </div>
 		            
 		    <%
 		        }
