@@ -31,11 +31,10 @@
 		    pstmt.setInt(2, userId);
 		    // Execute the SELECT query
 		    ResultSet rs = pstmt.executeQuery();
-		    mat_id = rs.getInt("id");
 		    //Error al momento de conseguir la fila que devuelve la consulta
 		    // Process the result
 		    if (rs.next()) {
-		        mat_id = rs.getInt("id");
+		        mat_id = rs.getInt("mat_id");
 		        // Use the mat_id as needed
 			
 		    } else {
@@ -54,7 +53,34 @@
 		    e.printStackTrace();
 		    out.println("Un error en la consulta ocurrio");
 		}
+	%>
+	
+		<%
+	try {
+	    //Conexion a la base de datos
+	    Class.forName("com.mysql.jdbc.Driver");
+	    Connection dbconect = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
+	    
+	    // The "mat_id" column is excluded from the INSERT statement since it's auto-incremented
+	    
+	    String insertarsql = "INSERT INTO porcentajes(por_nombre,por_porcentaje,por_mate_id) VALUES (?, ?, ?)";
+	    PreparedStatement pstmt = dbconect.prepareStatement(insertarsql, Statement.RETURN_GENERATED_KEYS);
+	    pstmt.setString(1, nombrePor);
+	    pstmt.setString(2, valPor);
+	    pstmt.setInt(3, mat_id);
 
+	    // Execute the INSERT statement
+	    pstmt.executeUpdate();
+
+	    // Close the resources
+	    pstmt.close();
+	    dbconect.close();
+
+	    response.sendRedirect("materia.jsp");
+	} catch (Exception e) {
+	    // Muestra mensaje de error
+	    e.printStackTrace();
+	}
 	%>
 	
 </body>
