@@ -44,7 +44,8 @@
 		
 		        // Execute the SELECT query
 		        ResultSet rs = pstmt.executeQuery();
-		
+			    float notaTotalConseguida = 0;
+			 	float notaTotalPosible = 0;
 		        // Process the results and insert HTML elements
 		        while (rs.next()) {
 		            String por_nombre = rs.getString("por_nombre");
@@ -53,12 +54,6 @@
 		    %>
 		            <!-- HTML elements to display data -->
             <div class="porcentajeContainer">
-                <div class="infoPorcentaje">
-                    <button class="eliminarPorBtn">Eliminar</button>
-                    <h2 class="nombrePorcentaje"><%=por_nombre %></h2>
-                    <p class="valorPorcentaje"><%= por_porcentaje%>%</p>
-                    <button class="showNotas">Mostrar notas</button>
-                </div>
                 <div class="notasContainer">
                    	<% 
 		    		try {
@@ -78,6 +73,10 @@
 		           		 String nota_nombre = rs2.getString("nota_nombre");
 		           		 String nota_posible = rs2.getString("nota_nota_pos");
 						 String nota_obtenida = rs2.getString("nota_nota_obt");
+							
+					     notaTotalConseguida +=  Float.parseFloat(nota_obtenida);
+						 notaTotalPosible +=  Float.parseFloat(nota_posible) ;
+						 
 		    		%>
 		            <!-- HTML elements to display data -->
                     <div class="nota">
@@ -98,8 +97,17 @@
 		        		// Handle the exception
 		        		e.printStackTrace();
 		    			}
+                   		Float porcentajeObtenido = (notaTotalConseguida/notaTotalPosible);
+                   		porcentajeObtenido = ((Float.parseFloat(por_porcentaje)/100)*porcentajeObtenido)*100;
 		   			 %>
                     <button class="addNota">Agregar Nota</button>
+                </div>
+                <div class="infoPorcentaje">
+                    <button class="eliminarPorBtn">Eliminar</button>
+                    <h2 class="nombrePorcentaje"><%=por_nombre %></h2>
+                    <p class="valorPorcentaje">Porcenaje Obtenido<%=porcentajeObtenido%>%</p>
+                    <p class="valorPorcentaje">Porcenaje Posible<%= por_porcentaje%>%</p>
+                    <button class="showNotas">Mostrar notas</button>
                 </div>
             </div>
 		            
