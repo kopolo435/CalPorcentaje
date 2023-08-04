@@ -48,9 +48,9 @@ function createPorInput(){
 }
 
 function createTitleLink(title){
-    const inputForm = materiaCheckForm.getElementById("titleName");
+    const inputForm = document.getElementById("titleName");
     inputForm.setAttribute("value",title.textContent);
-    materiaCheckFormsubmit();
+    materiaCheckForm.submit();
 }
 
 addMateBtn.addEventListener("click", ()=> {
@@ -96,7 +96,7 @@ Array.from(eliminarMateBtnLista).forEach(eliminarBtn =>{
 })
 
 Array.from(MateTitleLink).forEach(title =>{
-    title.addEventListener(()=>{
+    title.addEventListener("click",()=>{
         createTitleLink(title);
     })
 })

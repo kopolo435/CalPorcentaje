@@ -71,7 +71,7 @@
 		            <!-- HTML elements to display data -->
 		            <div class="materia">
 		                <button class="eliminarBtn">Eliminar</button>
-		                <h2 class="nombreMateria"><a href="materia.jsp" class="titleLink"><%= mat_nombre %></a></h2>
+		                <h2 class="nombreMateria"><button class="titleLink"><%= mat_nombre %></button></h2>
 		                <p class="estadoNota"><%= mat_estado %></p>
 		                <p class="porcentaje"><%= mat_porcentaje %></p>
 		            </div>
