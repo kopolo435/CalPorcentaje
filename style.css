@@ -84,6 +84,11 @@ h1{
     justify-self: flex-start;
 }
 
+.titleLink{
+	text-decoration: none;
+	color:inherit;
+}
+
 .porcentaje{
     grid-column: 2/3;
     grid-row: 1/3;
