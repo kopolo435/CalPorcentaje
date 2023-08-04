@@ -10,8 +10,9 @@ create table materias(
 CREATE TABLE porcentajes (
     por_id INT(30) AUTO_INCREMENT PRIMARY KEY,
     por_nombre VARCHAR(30),
-    por_porcentaje VARCHAR(30),
+    por_porcentaje FLOAT,
     por_mate_id INT(30),
+	por_obtenido_porcentaje FLOAT,
     CONSTRAINT por_mate_fk FOREIGN KEY (por_mate_id) REFERENCES materias(mat_id)
 );
 

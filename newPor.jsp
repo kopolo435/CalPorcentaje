@@ -24,12 +24,12 @@
 	    
 	    // The "mat_id" column is excluded from the INSERT statement since it's auto-incremented
 	    int mat_id = (int) session.getAttribute("currentIdMateria");
-	    String insertarsql = "INSERT INTO porcentajes(por_nombre,por_porcentaje,por_mate_id) VALUES (?, ?, ?)";
+	    String insertarsql = "INSERT INTO porcentajes(por_nombre,por_porcentaje,por_mate_id,por_obtenido_porcentaje) VALUES (?, ?, ?,?)";
 	    PreparedStatement pstmt = dbconect.prepareStatement(insertarsql, Statement.RETURN_GENERATED_KEYS);
 	    pstmt.setString(1, nombrePor);
 	    pstmt.setString(2, valPor);
 	    pstmt.setInt(3, mat_id);
-
+	    pstmt.setFloat(4, 0);
 	    // Execute the INSERT statement
 	    pstmt.executeUpdate();
 
