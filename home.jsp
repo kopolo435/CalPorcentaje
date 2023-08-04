@@ -25,7 +25,9 @@
 
     <main>
         <h1>Notas de materias</h1>
-
+		<form action="materiaCheck.jsp" id="materiaCheck" >
+			<input type="text" name="materiaName" hidden>
+		</form>
         <div class="materiasContainer" id="listaMaterias">
             <div class="materia">
                 <button class="eliminarBtn">Eliminar</button>
