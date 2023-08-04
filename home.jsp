@@ -26,7 +26,7 @@
     <main>
         <h1>Notas de materias</h1>
 		<form action="materiaCheck.jsp" id="materiaCheck" >
-			<input type="text" name="materiaName" hidden>
+			<input type="text" name="materiaName" id="titleName" hidden>
 		</form>
         <div class="materiasContainer" id="listaMaterias">
             <div class="materia">
@@ -89,7 +89,7 @@
 		        e.printStackTrace();
 		    }
 		    %>
-            <button class="addMateria" id="addMateria">Añadir nueva materia</button>
+            <button class="addMateria" id="addMateria">Aï¿½adir nueva materia</button>
         </div>
         <button type="submit" form="newMateria" class="guardarBtn" for>Guardar</button>
     </main>

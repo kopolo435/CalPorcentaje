@@ -1,6 +1,8 @@
 let addMateBtn = document.getElementById("addMateria"); //Materia sera abreviado como Mate
 let mateContainer = document.getElementById("listaMaterias");
 let eliminarMateBtnLista = document.getElementsByClassName("eliminarBtn");
+const MateTitleLink= document.getElementsByClassName("titleLink");
+const materiaCheckForm = document.getElementById("materiaCheck");
 
 function createNomMateLabel(){
     let label = document.createElement("label");
@@ -45,6 +47,12 @@ function createPorInput(){
     return inputPor
 }
 
+function createTitleLink(title){
+    const inputForm = materiaCheckForm.getElementById("titleName");
+    inputForm.setAttribute("value",title.textContent);
+    materiaCheckFormsubmit();
+}
+
 addMateBtn.addEventListener("click", ()=> {
     let materia = document.createElement("div");
     const nombreLabel = createNomMateLabel();
@@ -85,4 +93,10 @@ function eliminarNotaEvent(button){
 
 Array.from(eliminarMateBtnLista).forEach(eliminarBtn =>{
     eliminarNotaEvent(eliminarBtn);
+})
+
+Array.from(MateTitleLink).forEach(title =>{
+    title.addEventListener(()=>{
+        createTitleLink(title);
+    })
 })
