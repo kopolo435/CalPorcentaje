@@ -109,6 +109,26 @@ function EliminarPorEvent(button){
     })
 }
 
+//Funcion que envia el id del Porcentaje que se quiere eliminar
+function enviarIdPorcentaje(button){
+    const porcentajeContainer = button.closest(".infoPorcentaje");
+    const idOcultoContainer = porcentajeContainer.getElementsByClassName("idOculto");
+    const idPorcentaje = idOcultoContainer[0].textContent;
+
+    const deleteForm = document.createElement("form");
+    const idInput = document.createElement("input");
+    
+    idInput.setAttribute("value",idPorcentaje);
+    idInput.setAttribute("type","text");
+    idInput.setAttribute("name","idPorcentaje");
+    deleteForm.setAttribute("action","deletePorcentaje.jsp");
+
+    deleteForm.appendChild(idInput);
+    porcentajeContainer.appendChild(deleteForm);
+
+    deleteForm.submit();
+}
+
 /*
 Funcion que se encarga de eliminar del contenedor .notasContainer toda
 la informacion de la nota a la cual se le hizo click de eliminar.
@@ -118,7 +138,7 @@ function eliminarNotaEvent(button){
     button.addEventListener("click", () =>{
         const eliminarParent = button.parentNode;
         if(eliminarParent.nodeName !="FORM"){
-        	eliminarNotaEnBaseDatos(button);
+        	enviarIdNota(button);
             eliminarParent.parentNode.removeChild(eliminarParent);
         }
         else{
@@ -130,7 +150,7 @@ function eliminarNotaEvent(button){
 }
 
 //Funcion que envia el id de la nota que se quiere eliminar
-function eliminarNotaEnBaseDatos(button){
+function enviarIdNota(button){
     const NotaContainer = button.closest(".nota");
     const idOcultoContainer = NotaContainer.getElementsByClassName("idOculto");
     const idNota = idOcultoContainer[0].textContent;
