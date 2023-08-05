@@ -49,7 +49,7 @@
 		        String userIdStr = (String) session.getAttribute("userId");; // Assuming userId is stored as an int in the session
 		        int userId = Integer.parseInt(userIdStr);
 		        // Prepare the SELECT query
-		        String selectQuery = "SELECT mat_nombre, mat_porcentaje, mat_estado FROM materias WHERE mat_usu_id = ?";
+		        String selectQuery = "SELECT mat_id,mat_nombre, mat_porcentaje, mat_estado FROM materias WHERE mat_usu_id = ?";
 		        PreparedStatement pstmt = dbconect.prepareStatement(selectQuery);
 		        pstmt.setInt(1, userId);
 		
@@ -61,6 +61,7 @@
 		            String mat_nombre = rs.getString("mat_nombre");
 		            String mat_porcentaje = rs.getString("mat_porcentaje");
 		            String mat_estado = rs.getString("mat_estado");
+		            String mat_id = rs.getString("mat_id");
 		            if(mat_estado.equals("si")){
 		            	mat_estado = "Pasaste";
 		            }
@@ -74,6 +75,7 @@
 		                <h2 class="nombreMateria"><button class="titleLink"><%= mat_nombre %></button></h2>
 		                <p class="estadoNota"><%= mat_estado %></p>
 		                <p class="porcentaje"><%= mat_porcentaje %></p>
+		                <p class="idOculto"><%= mat_id%> </p>
 		            </div>
 		            
 		    <%
