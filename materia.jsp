@@ -170,24 +170,29 @@
 			//Actualizamos el porcentaje en la materia
 			try {
 			    // Establish a database connection
-			    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
-			    
+			    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje", "root", "");
+			
 			    // Values to update
-			    int matId = (int) session.getAttribute("currentIdMateria");  // Replace with the actual mat_id value
-			    String newMatPorcentaje = String.format("%.2f", porcentajeTotalMateria);  // Replace with the desired new value
-			    
+			    int matId = (int) session.getAttribute("currentIdMateria");  // id de la materia actual de la que se actualizan los datos
+			    String newMatPorcentaje = String.format("%.2f", porcentajeTotalMateria);  // Porcentaje total para la materia elegida
+			    String newAdditionalColumnValue = "no";
+			    if(porcentajeTotalMateria > 71){
+			    	newAdditionalColumnValue = "si";
+			    }
 			    // Create the SQL update statement
-			    String updateQuery = "UPDATE materias SET mat_porcentaje = ? WHERE mat_id = ?";
+			    String updateQuery = "UPDATE materias SET mat_porcentaje = ?, mat_estado = ? WHERE mat_id = ?";
 			    
 			    // Create a PreparedStatement
 			    PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
 			    preparedStatement.setString(1, newMatPorcentaje);
-			    preparedStatement.setInt(2, matId);
+			    preparedStatement.setString(2, newAdditionalColumnValue);
+			    preparedStatement.setInt(3, matId);
 			    
 			    // Execute the update
 			    int rowsAffected = preparedStatement.executeUpdate();
 			    
 			    if (rowsAffected > 0) {
+			        // Update successful
 			    } else {
 			        out.println("Update failed!");
 			    }
@@ -199,6 +204,7 @@
 			    out.println("An error occurred: " + e.getMessage());
 			    e.printStackTrace();
 			}
+
 		    %>
             <button id="addPorcentaje">Agrega Porcentaje</button>
         </div>
