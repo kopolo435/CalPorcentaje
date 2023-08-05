@@ -62,7 +62,7 @@
 		      		  	Class.forName("com.mysql.jdbc.Driver");
 		       		 	Connection dbconect2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/calcuporcentaje","root","");
 		       		 	// Prepare the SELECT query
-		       		 	String selectQuery2 = "SELECT nota_nombre,nota_nota_pos,nota_nota_obt FROM notas WHERE nota_por_id = ?";
+		       		 	String selectQuery2 = "SELECT nota_id,nota_nombre,nota_nota_pos,nota_nota_obt FROM notas WHERE nota_por_id = ?";
 		     		   	PreparedStatement pstmt2 = dbconect2.prepareStatement(selectQuery2);
 		      		  	pstmt2.setInt(1, por_id);
 		
@@ -74,6 +74,7 @@
 		           		 String nota_nombre = rs2.getString("nota_nombre");
 		           		 String nota_posible = rs2.getString("nota_nota_pos");
 						 String nota_obtenida = rs2.getString("nota_nota_obt");
+						 String nota_id = rs2.getString("nota_id");
 							
 					     notaTotalConseguida +=  Float.parseFloat(nota_obtenida);
 						 notaTotalPosible +=  Float.parseFloat(nota_posible) ;
@@ -84,8 +85,9 @@
                     <div class="nota">
                         <button class="eliminarBtn">Eliminar</button>
                         <h3 class="nombreNota"><%=nota_nombre%></h3>
-                        <p class="notaObt"><%= nota_obtenida%></p>
-                        <p class="notaPos"><%= nota_posible%></p>
+                        <p class="notaObt">Nota obtenida: <%= nota_obtenida%></p>
+                        <p class="notaPos">Nota posible: <%= nota_posible%></p>
+                        <p class="idOculto"><%= nota_id%> </p>
                     </div>
 		            
 		    		<%
@@ -152,6 +154,7 @@
                     <p class="valorPorcentajeObt">Porcenaje Obtenido: <%=porcentajeObtenido%>%</p>
                     <p class="valorPorcentaje">Porcenaje Posible: <%= por_porcentaje%>%</p>
                     <button class="showNotas">Mostrar notas</button>
+                    <p class="idOculto"><%= por_id%> </p>
                 </div>
             </div>
 		            
