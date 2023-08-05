@@ -75,7 +75,7 @@
 		                <h2 class="nombreMateria"><button class="titleLink"><%= mat_nombre %></button></h2>
 		                <p class="estadoNota"><%= mat_estado %></p>
 		                <p class="porcentaje"><%= mat_porcentaje %></p>
-		                <p class="idOculto"><%= mat_id%> </p>
+		                <p class="idOculto"><%= mat_id%></p>
 		            </div>
 		            
 		    <%

@@ -87,7 +87,7 @@
                         <h3 class="nombreNota"><%=nota_nombre%></h3>
                         <p class="notaObt">Nota obtenida: <%= nota_obtenida%></p>
                         <p class="notaPos">Nota posible: <%= nota_posible%></p>
-                        <p class="idOculto"><%= nota_id%> </p>
+                        <p class="idOculto"><%= nota_id%></p>
                     </div>
 		            
 		    		<%
@@ -154,7 +154,7 @@
                     <p class="valorPorcentajeObt">Porcenaje Obtenido: <%=porcentajeObtenido%>%</p>
                     <p class="valorPorcentaje">Porcenaje Posible: <%= por_porcentaje%>%</p>
                     <button class="showNotas">Mostrar notas</button>
-                    <p class="idOculto"><%= por_id%> </p>
+                    <p class="idOculto"><%= por_id%></p>
                 </div>
             </div>
 		            

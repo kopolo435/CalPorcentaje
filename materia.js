@@ -122,7 +122,6 @@ function eliminarNotaEvent(button){
             eliminarParent.parentNode.removeChild(eliminarParent);
         }
         else{
-        	eliminarNotaEnBaseDatos(button);
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             changeDisabledNota(false);
             addPorcentajeBtn.disabled = false;
@@ -130,6 +129,7 @@ function eliminarNotaEvent(button){
     })
 }
 
+//Funcion que envia el id de la nota que se quiere eliminar
 function eliminarNotaEnBaseDatos(button){
     const NotaContainer = button.closest(".nota");
     const idOcultoContainer = NotaContainer.getElementsByClassName("idOculto");
