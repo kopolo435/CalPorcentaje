@@ -29,18 +29,6 @@
 			<input type="text" name="materiaName" id="titleName" hidden>
 		</form>
         <div class="materiasContainer" id="listaMaterias">
-            <div class="materia">
-                <button class="eliminarBtn">Eliminar</button>
-                <h2 class="nombreMateria">Nombre</h2>
-                <p class="estadoNota">Estado nota</p>
-                <p class="porcentaje">Porcentaje conseguido</p>
-            </div>
-            <div class="materia">
-                <button class="eliminarBtn">Eliminar</button>
-                <h2 class="nombreMateria">Nombre</h2>
-                <p class="estadoNota">Estado nota</p>
-                <p class="porcentaje">Porcentaje conseguido</p>
-            </div>
 		    <% 
 		    try {
 		        //Conexion a la base de datos
