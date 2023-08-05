@@ -82,6 +82,7 @@ function eliminarNotaEvent(button){
     button.addEventListener("click", () =>{
         const eliminarParent = button.parentNode.parentNode;
         if(eliminarParent.nodeName !="FORM"){
+            enviarIdMateria(button);
             eliminarParent.removeChild(button.parentNode);
         }
         else{
@@ -89,6 +90,26 @@ function eliminarNotaEvent(button){
             addMateBtn.disabled = false;
         }
     })
+}
+
+//Funcion que envia el id de la materia que se quiere eliminar
+function enviarIdMateria(button){
+    const materiaContainer = button.closest(".materia");
+    const idOcultoContainer = materiaContainer.getElementsByClassName("idOculto");
+    const idMateria = idOcultoContainer[0].textContent;
+
+    const deleteForm = document.createElement("form");
+    const idInput = document.createElement("input");
+    
+    idInput.setAttribute("value",idMateria);
+    idInput.setAttribute("type","text");
+    idInput.setAttribute("name","idMateria");
+    deleteForm.setAttribute("action","deleteMateria.jsp");
+
+    deleteForm.appendChild(idInput);
+    materiaContainer.appendChild(deleteForm);
+
+    deleteForm.submit();
 }
 
 Array.from(eliminarMateBtnLista).forEach(eliminarBtn =>{
