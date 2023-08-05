@@ -119,13 +119,33 @@ function eliminarNotaEvent(button){
         const eliminarParent = button.parentNode;
         if(eliminarParent.nodeName !="FORM"){
             eliminarParent.parentNode.removeChild(eliminarParent);
+            eliminarNotaEnBaseDatos(button);
         }
         else{
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             changeDisabledNota(false);
             addPorcentajeBtn.disabled = false;
+            eliminarNotaEnBaseDatos(button);
         }
     })
+}
+
+function eliminarNotaEnBaseDatos(button){
+    const NotaContainer = button.closest("nota");
+    const idOcultoContainer = NotaContainer.getElementsByClassName("idOculto");
+    const idNota = idOcultoContainer[0].textContent;
+
+    const deleteForm = document.createElement("form");
+    const idInput = document.createElement("input");
+    
+    idInput.setAttribute("value",idNota);
+    idInput.setAttribute("type","text");
+    idInput.setAttribute("name","idNota");
+    deleteForm.setAttribute("action","deleteNota.jsp");
+
+    deleteForm.appendChild(idInput);
+
+    deleteForm.submit();
 }
 
 /*
