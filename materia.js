@@ -118,20 +118,20 @@ function eliminarNotaEvent(button){
     button.addEventListener("click", () =>{
         const eliminarParent = button.parentNode;
         if(eliminarParent.nodeName !="FORM"){
+        	eliminarNotaEnBaseDatos(button);
             eliminarParent.parentNode.removeChild(eliminarParent);
-            eliminarNotaEnBaseDatos(button);
         }
         else{
+        	eliminarNotaEnBaseDatos(button);
             eliminarParent.parentNode.parentNode.removeChild(eliminarParent.parentNode);
             changeDisabledNota(false);
             addPorcentajeBtn.disabled = false;
-            eliminarNotaEnBaseDatos(button);
         }
     })
 }
 
 function eliminarNotaEnBaseDatos(button){
-    const NotaContainer = button.closest("nota");
+    const NotaContainer = button.closest(".nota");
     const idOcultoContainer = NotaContainer.getElementsByClassName("idOculto");
     const idNota = idOcultoContainer[0].textContent;
 
@@ -144,6 +144,7 @@ function eliminarNotaEnBaseDatos(button){
     deleteForm.setAttribute("action","deleteNota.jsp");
 
     deleteForm.appendChild(idInput);
+    NotaContainer.appendChild(deleteForm);
 
     deleteForm.submit();
 }
