@@ -99,6 +99,7 @@ function EliminarPorEvent(button){
     button.addEventListener("click", ()=>{
         const eliminarParent = button.parentNode.parentNode;
         if (eliminarParent.nodeName != "FORM"){
+            enviarIdPorcentaje(button);
             eliminarParent.parentNode.removeChild(eliminarParent);
         }
         else{
